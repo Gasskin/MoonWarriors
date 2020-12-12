@@ -27,6 +27,10 @@
 
         "src/about/scene/About.js",
         "src/about/layer/ABBackgroundLayer.js",
-        "src/about/layer/ABTouchLayer.js"
+        "src/about/layer/ABTouchLayer.js",
+
+        "src/gamePlay/scene/GamePlay.js",
+        "src/gamePlay/layer/GPBackgroundLayer.js",
+        "src/gamePlay/layer/GPTouchLayer.js"
     ]
 }

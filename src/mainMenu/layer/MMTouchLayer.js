@@ -37,11 +37,18 @@ var MMTouchLayer = cc.Layer.extend({
             newGameNormal,
             newGameSelected,
             newGameDisabled,
+            this.onNewGame(),
+            this
+        );
+        /*var newGame = new cc.MenuItemSprite(
+            newGameNormal,
+            newGameSelected,
+            newGameDisabled,
             function(){
                 this.onButtonEffect();
                 this.flareEffect(flare, this, this.onNewGame);
             }.bind(this)
-        );
+        );*/
         var gameSettings = new cc.MenuItemSprite(
             gameSettingsNormal,
             gameSettingsSelected,
@@ -108,7 +115,7 @@ var MMTouchLayer = cc.Layer.extend({
             this.getParent().removeChild(this,true);
         }, flare);
         //按顺序执行一组动作
-        var seqAction = cc.sequence(opacityAnim, biggerEase,onComplete,killflare);
+        var seqAction = cc.sequence(opacityAnim, biggerEase,onComplete);
         //同时执行一组动作
         var action = cc.spawn(seqAction, easeMove, rotateEase, bigger);
         flare.runAction(action);
