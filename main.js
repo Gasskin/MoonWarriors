@@ -77,35 +77,22 @@
  */
 
 cc.game.onStart = function(){
-    var sys = cc.sys;
-    if(!sys.isNative && document.getElementById("cocosLoading")) //If referenced loading.js, please remove it
-        document.body.removeChild(document.getElementById("cocosLoading"));
-
-    // Pass true to enable retina display, on Android disabled by default to improve performance
-    cc.view.enableRetina(sys.os === sys.OS_IOS ? true : false);
-
-    // Disable auto full screen on baidu and wechat, you might also want to eliminate sys.BROWSER_TYPE_MOBILE_QQ
-    if (sys.isMobile && 
-        sys.browserType !== sys.BROWSER_TYPE_BAIDU &&
-        sys.browserType !== sys.BROWSER_TYPE_WECHAT) {
-        cc.view.enableAutoFullScreen(true);
-    }
-
-    // Adjust viewport meta
     cc.view.adjustViewPort(true);
-
-    // Uncomment the following line to set a fixed orientation for your game
-    // cc.view.setOrientation(cc.ORIENTATION_PORTRAIT);
-
-    // Setup the resolution policy and design resolution size
-    cc.view.setDesignResolutionSize(960, 640, cc.ResolutionPolicy.SHOW_ALL);
-
-    // The game will be resized when browser size change
+    /**
+     * @argument1 分辨率宽度
+     * @argument2 分辨率高度
+     * @argument3 屏幕适配方案
+     */
+    cc.view.setDesignResolutionSize(320, 480, cc.ResolutionPolicy.SHOW_ALL);
     cc.view.resizeWithBrowserSize(true);
-
-    //load resources
-    cc.LoaderScene.preload(g_resources, function () {
-        cc.director.runScene(new HelloWorldScene());
-    }, this);
+    //先预加载资，加载界面在cocos2d-html5/core/scenes/CCLoaderScene.js
+    //回调函数，当资源被加载完成后，会执行第二个匿名函数
+    cc.LoaderScene.preload(
+        g_resources,
+        // 导演启动场景
+        function () {
+            cc.director.runScene(new MainMenuScene());
+        },
+        this);
 };
 cc.game.run();

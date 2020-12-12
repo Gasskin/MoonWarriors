@@ -13,6 +13,11 @@
 
     "jsList" : [
         "src/resource.js",
-        "src/app.js"
+
+        "src/config/GameConfig.js",
+
+        "src/mainMenu/scene/MainMenu.js",
+        "src/mainMenu/layer/MMTouchLayer.js",
+        "src/mainMenu/layer/MMBackgroundLayer.js"
     ]
 }
