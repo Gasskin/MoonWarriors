@@ -2,7 +2,7 @@ var MMTouchLayer = cc.Layer.extend({
     ctor : function(){
         this._super();
         this.playMusic();
-        //this.initMenu();
+        this.initMenu();
     },
     playMusic : function(){
         //播放背景音乐，true代表循环无限次播放，false表示只播放一次。
@@ -22,7 +22,7 @@ var MMTouchLayer = cc.Layer.extend({
         //因为menuItem有Normal、Selected、Disabled三个状态，所以一个菜单项需要三张纹理图片
         var newGameNormal = new cc.Sprite(res.mm_mune_png, cc.rect(0, 0, 126, 33));
         var newGameSelected = new cc.Sprite(res.mm_mune_png, cc.rect(0, 33, 126, 33));
-        var newGameDisabled = new cc.Sprite(res.mm_mune_png, cc.rect(0, 33 * 2, 126, 33));
+        var newGameDisabled = new cc.Sprite(res.mm_mune_png, cc.rect(0, 66, 126, 33));
 
         var gameSettingsNormal = new cc.Sprite(res.mm_mune_png, cc.rect(126, 0, 126, 33));
         var gameSettingsSelected = new cc.Sprite(res.mm_mune_png, cc.rect(126, 33, 126, 33));
@@ -88,14 +88,15 @@ var MMTouchLayer = cc.Layer.extend({
         flare.attr({
             x: -30,
             y: 297,
+            /*x: GC.w_2,
+            y: GC.h_2,*/
             visible: true,
             opacity: 0,
             rotation: -120,
             scale: 0.2
         });
         //定义动作
-        var opacityAnim = cc.fadeIn(0.5, 255);
-        var opacDim = cc.fadeIn(1, 0);
+        var opacityAnim = cc.fadeIn(0.5);//透明度渐变0-255
         //为动作加上easing效果，具体参考tests里面的示例
         var biggerEase = cc.scaleBy(0.7, 1.2, 1.2).easing(cc.easeSineOut());
         var easeMove = cc.moveBy(0.5, cc.p(328, 0)).easing(cc.easeSineOut());
@@ -107,7 +108,7 @@ var MMTouchLayer = cc.Layer.extend({
             this.getParent().removeChild(this,true);
         }, flare);
         //按顺序执行一组动作
-        var seqAction = cc.sequence(opacityAnim, biggerEase, opacDim, killflare, onComplete);
+        var seqAction = cc.sequence(opacityAnim, biggerEase,onComplete,killflare);
         //同时执行一组动作
         var action = cc.spawn(seqAction, easeMove, rotateEase, bigger);
         flare.runAction(action);
