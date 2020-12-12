@@ -1,9 +1,4 @@
-/**
- * Created by lingjianfeng on 14-8-31.
- */
-
 var GamePlayLayer = cc.Layer.extend({
-
     _backgroundLayer : null,
     _touchLayer : null,
     ctor : function(){
@@ -12,16 +7,18 @@ var GamePlayLayer = cc.Layer.extend({
         this.addBackgroundLayer();
         this.addTouchLayer();
     },
+    //添加缓存资源
     addCache : function(){
-        //将plist添加到缓存
         cc.spriteFrameCache.addSpriteFrames(res.gp_TextureOpaquePack_plist);
         cc.spriteFrameCache.addSpriteFrames(res.gp_b01_plist);
         cc.spriteFrameCache.addSpriteFrames(res.gp_Explosion_plist);
     },
+    //添加背景
     addBackgroundLayer : function(){
         this._backgroundLayer = new GPBackgroundLayer();
         this.addChild(this._backgroundLayer);
     },
+    //业务逻辑层
     addTouchLayer : function(){
         this._touchLayer = new GPTouchLayer();
         this.addChild(this._touchLayer);

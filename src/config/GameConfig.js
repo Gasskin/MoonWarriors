@@ -53,7 +53,7 @@ GC.UNIT_TAG = {
     ENMEY_BULLET : 900,
     PLAYER_BULLET : 901,
     ENEMY : 1000,
-    PLAYER : 1000
+    PLAYER : 1001
 };
 
 //标签

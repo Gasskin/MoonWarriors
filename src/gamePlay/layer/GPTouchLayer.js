@@ -1,7 +1,3 @@
-/**
- * Created by lingjianfeng on 14-8-31.
- */
-
 STATE_PLAYING = 0;
 STATE_GAMEOVER = 1;
 
@@ -38,14 +34,14 @@ var GPTouchLayer = cc.Layer.extend({
        //this._levelManager = new LevelManager(this);
         this.initBatchNode();
         this.initAboutInfo();
-        //this.initShip();
-        //this.scheduleUpdate();
+        this.initShip();
+        this.scheduleUpdate();//每一帧都会调用update方法
         //this.schedule(this.scoreCounter, 1);
-        //子弹敌人等预备
+        //子弹、敌人等预备
         //BulletSprite.preSet();
         //EnemySprite.preSet();
         //SparkEffectSprite.preSet();
-       // ExplosionSprite.preSet();
+        //ExplosionSprite.preSet();
     },
     playMusic : function(){
         if (GC.SOUND_ON){
@@ -105,23 +101,22 @@ var GPTouchLayer = cc.Layer.extend({
         });
         this.addChild(this._ship, 1);
     },
-    //游戏时时刷新
+    //每一帧都会调用update
     update:function (dt) {
         if (this._state == STATE_PLAYING) {
             //UI在这边更新
             this.updateUI();
-            //敌人在这里面产生，以及界面上
+            //界面上主要物体的位置更新，如敌机和发射子弹的位置
             this.moveActiveUnit(dt);
             //碰撞检测
             this.checkIsCollide();
             // 检测我们的飞船重生
             this.checkIsReborn();
-            //这个部分被我直接干掉了。。。因为，重复代码，没什么内容
-            //this._movingBackground(dt);
         }
     },
     //飞船，子弹等等BatchNode子节点的一个更新
     moveActiveUnit : function(dt){
+        //子弹、爆炸
         var selChild, children = this._texOpaqueBatch.getChildren();
         for (var i in children) {
             selChild = children[i];
@@ -129,12 +124,14 @@ var GPTouchLayer = cc.Layer.extend({
                 selChild.update(dt);
             }
         }
+        //敌机
         children = this._texTransparentBatch.getChildren();
         for (i in children) {
             selChild = children[i];
             if (selChild && selChild.active)
                 selChild.update(dt);
         }
+        //我
         this._ship.update(dt);
     },
     updateUI:function () {
@@ -149,15 +146,16 @@ var GPTouchLayer = cc.Layer.extend({
             this._levelManager.loadLevelResource(this._time);
         }
     },
+    //检测所有碰撞
     checkIsCollide:function () {
         var selChild, bulletChild;
-        // check collide
         var i, locShip = this._ship;
         for (i = 0; i < GC.CONTAINER.ENEMIES.length; i++) {
             selChild = GC.CONTAINER.ENEMIES[i];
             if (!selChild.active) {
                 continue;
             }
+            //检测子弹与敌机是否碰撞
             for (var j = 0; j < GC.CONTAINER.PLAYER_BULLETS.length; j++) {
                 bulletChild = GC.CONTAINER.PLAYER_BULLETS[j];
                 if (bulletChild.active && this.collide(selChild, bulletChild)) {
@@ -165,6 +163,7 @@ var GPTouchLayer = cc.Layer.extend({
                     selChild.hurt();
                 }
             }
+            //敌机与我是否碰撞
             if (this.collide(selChild, locShip)) {
                 if (locShip.active) {
                     selChild.hurt();
@@ -172,6 +171,7 @@ var GPTouchLayer = cc.Layer.extend({
                 }
             }
         }
+        //检测我与敌机的子弹是否碰撞
         for (i = 0; i < GC.CONTAINER.ENEMY_BULLETS.length; i++) {
             selChild = GC.CONTAINER.ENEMY_BULLETS[i];
             if (selChild.active && this.collide(selChild, locShip)) {
@@ -182,7 +182,7 @@ var GPTouchLayer = cc.Layer.extend({
             }
         }
     },
-    //坚持飞船重生
+    //飞船重生
     checkIsReborn:function () {
         var locShip = this._ship;
         if (GC.LIFE > 0 && !locShip.active) {
@@ -199,21 +199,22 @@ var GPTouchLayer = cc.Layer.extend({
             this.runAction(action);
         }
     },
-    //碰撞坚持
+    //碰撞检测
     collide:function (a, b) {
         var ax = a.x;
         var ay = a.y;
         var bx = b.x;
         var by = b.y;
+        //如果距离大于屏幕大小，那肯定不算碰撞
         if (Math.abs(ax - bx) > MAX_CONTAINT_WIDTH || Math.abs(ay - by) > MAX_CONTAINT_HEIGHT)
             return false;
         var aRect = a.collideRect(ax, ay);
         var bRect = b.collideRect(bx, by);
+        //判断两个矩形是否相交
         return cc.rectIntersectsRect(aRect, bRect);
     },
     //游戏结束
     onGameOver : function(){
-        cc.log("onGameOver");
         cc.audioEngine.stopMusic();
         cc.audioEngine.stopAllEffects();
         cc.director.runScene(new cc.TransitionFade(1.2, new GameOverScene()));

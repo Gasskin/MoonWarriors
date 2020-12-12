@@ -31,6 +31,8 @@
 
         "src/gamePlay/scene/GamePlay.js",
         "src/gamePlay/layer/GPBackgroundLayer.js",
-        "src/gamePlay/layer/GPTouchLayer.js"
+        "src/gamePlay/layer/GPTouchLayer.js",
+        "src/gamePlay/sprite/ShipSprite.js",
+        "src/gamePlay/sprite/BulletSprite.js"
     ]
 }
