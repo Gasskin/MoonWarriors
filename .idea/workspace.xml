@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="56f6adf5-24cc-4ca0-8be5-6867881de959" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project.json" beforeDir="false" afterPath="$PROJECT_DIR$/project.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/GameConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/GameConfig.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mainMenu/layer/MMTouchLayer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/mainMenu/layer/MMTouchLayer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gamePlay/layer/GPTouchLayer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/gamePlay/layer/GPTouchLayer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +64,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1607748141813</updated>
-      <workItem from="1607748142881" duration="13278000" />
+      <workItem from="1607748142881" duration="13670000" />
     </task>
     <servers />
   </component>

@@ -35,9 +35,9 @@ var GPTouchLayer = cc.Layer.extend({
         //指向当前层
         g_GPTouchLayer = this;
         this._state = STATE_PLAYING;
-       // this._levelManager = new LevelManager(this);
-       // this.initBatchNode();
-        //this.initAboutInfo();
+       //this._levelManager = new LevelManager(this);
+        this.initBatchNode();
+        this.initAboutInfo();
         //this.initShip();
         //this.scheduleUpdate();
         //this.schedule(this.scoreCounter, 1);
@@ -54,22 +54,23 @@ var GPTouchLayer = cc.Layer.extend({
     },
     initBatchNode : function(){
         //创建3个BatchNode，并为其中一个设置渲染方式
-        // OpaqueBatch
+        //光效
         var texOpaque = cc.textureCache.addImage(res.gp_TextureOpaquePack_png);
         this._texOpaqueBatch = new cc.SpriteBatchNode(texOpaque);
-        this._texOpaqueBatch.setBlendFunc(cc.SRC_ALPHA, cc.ONE);
+        this._texOpaqueBatch.setBlendFunc(cc.SRC_ALPHA, cc.ONE);//设置渲染模式
         this.addChild(this._texOpaqueBatch);
-        // TransparentBatch
+        //飞船
         var texTransparent = cc.textureCache.addImage(res.TextureTransparentPack_png);
         this._texTransparentBatch = new cc.SpriteBatchNode(texTransparent);
         this.addChild(this._texTransparentBatch);
-        // explosion batch node
+        //爆炸
         var explosionTexture = cc.textureCache.addImage(res.gp_Explosion_png);
         this._explosions = new cc.SpriteBatchNode(explosionTexture);
         this._explosions.setBlendFunc(cc.SRC_ALPHA, cc.ONE);
         this.addChild(this._explosions);
     },
     initAboutInfo : function(){
+        //分数
         this._lbScore = new cc.LabelBMFont("Score: 0", res.sh_arial_14_fnt);
         this._lbScore.attr({
             anchorX: 1,
@@ -79,7 +80,7 @@ var GPTouchLayer = cc.Layer.extend({
         });
         this._lbScore.textAlign = cc.TEXT_ALIGNMENT_RIGHT;
         this.addChild(this._lbScore, 1000);
-        // ship life
+        //生命图标
         var life = new cc.Sprite("#ship01.png");
         life.attr({
             scale: 0.6,
@@ -87,7 +88,7 @@ var GPTouchLayer = cc.Layer.extend({
             y: 460
         });
         this._texTransparentBatch.addChild(life, 1, 5);
-        // ship Life count
+        //生命数量
         this._lbLife = new cc.LabelTTF("0", "Arial", 20);
         this._lbLife.attr({
             x : 60,
