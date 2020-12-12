@@ -23,6 +23,10 @@
 
         "src/setting/scene/Setting.js",
         "src/setting/layer/STBackgroundLayer.js",
-        "src/setting/layer/STTouchLayer.js"
+        "src/setting/layer/STTouchLayer.js",
+
+        "src/about/scene/About.js",
+        "src/about/layer/ABBackgroundLayer.js",
+        "src/about/layer/ABTouchLayer.js"
     ]
 }

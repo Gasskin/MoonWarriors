@@ -56,12 +56,14 @@ var STTouchLayer = cc.Layer.extend({
         var label = new cc.LabelTTF("Go back", "Arial", 20);
         var back = new cc.MenuItemLabel(label, this.onBackCallback);
         back.scale = 0.8;
+
+        //设置总的菜单，相当于把上面的元素都放到一个集合里
         var menu = new cc.Menu(title1, title2, item1, item2, back);
 
         //  类似网格布局，三行，第一行为2列，第二行为2列，第三行为1列
         menu.alignItemsInColumns(2, 2, 1);
+        back.y -= 50;//必须在menu之后设置位置
         this.addChild(menu);
-        back.y -= 50;
 
     },
     onSoundControl : function(){
