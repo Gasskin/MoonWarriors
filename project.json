@@ -37,6 +37,8 @@
         "src/gamePlay/sprite/ShipSprite.js",
         "src/gamePlay/sprite/BulletSprite.js",
         "src/gamePlay/classes/LevelManager.js",
-        "src/gamePlay/sprite/EnemySprite.js"
+        "src/gamePlay/sprite/EnemySprite.js",
+        "src/gamePlay/sprite/ExplosionSprite.js",
+        "src/gamePlay/sprite/SparkEffectSprite.js"
     ]
 }

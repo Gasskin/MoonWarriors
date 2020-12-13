@@ -33,7 +33,7 @@ var EnemySprite = cc.Sprite.extend({
 
         if (this.HP <= 0) {
             this.active = false;
-            //this.destroy();
+            this.destroy();
         }
 
     },
