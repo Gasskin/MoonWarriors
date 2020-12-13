@@ -26,6 +26,9 @@ GC.GAME_STATE_ENUM = {
 
 GC.GAME_STATE = GC.GAME_STATE_ENUM.HOME;
 
+//生命值
+GC.LIFE = 1;
+
 //当前场景存在敌人数量
 GC.ACTIVE_ENEMIES=0;
 

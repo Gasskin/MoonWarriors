@@ -26,6 +26,7 @@ var MainMenuScene  = cc.Scene.extend({
         //调用父类的onEnter()方法。
         this._super();
         var layer = new MainMenuLayer();
+        //var layer = new GameOverLayer();
         this.addChild(layer);
     }
 });

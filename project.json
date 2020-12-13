@@ -39,6 +39,10 @@
         "src/gamePlay/classes/LevelManager.js",
         "src/gamePlay/sprite/EnemySprite.js",
         "src/gamePlay/sprite/ExplosionSprite.js",
-        "src/gamePlay/sprite/SparkEffectSprite.js"
+        "src/gamePlay/sprite/SparkEffectSprite.js",
+
+        "src/gameOver/scene/GameOver.js",
+        "src/gameOver/layer/GOBackgroundLayer.js",
+        "src/gameOver/layer/GOTouchLayer.js"
     ]
 }

@@ -36,7 +36,7 @@ var GOTouchLayer = cc.Layer.extend({
         menu.y = 220;
         this.addChild(menu);
 
-        var labCocos = new cc.LabelTTF("Download Cocos2d-html5","Arial",14);
+        /*var labCocos = new cc.LabelTTF("Download Cocos2d-html5","Arial",14);
         var labSample = new cc.LabelTTF("Download This Sample","Arial",14);
         var menu1 = new cc.MenuItemLabel(labCocos, function(){
             window.location.href = "http://www.cocos2d-x.org/projects/cocos2d-x/wiki/Cocos2d-html5";
@@ -48,7 +48,7 @@ var GOTouchLayer = cc.Layer.extend({
         cocos2dMenu.x = 160;
         cocos2dMenu.y = 80;
         cocos2dMenu.alignItemsVerticallyWithPadding(10);
-        this.addChild(cocos2dMenu);
+        this.addChild(cocos2dMenu);*/
     },
     onPlayAgain : function(){
         cc.audioEngine.stopMusic();

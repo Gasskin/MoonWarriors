@@ -33,14 +33,14 @@ var MMTouchLayer = cc.Layer.extend({
         var aboutDisabled = new cc.Sprite(res.mm_mune_png, cc.rect(252, 33 * 2, 126, 33));
 
         //三个菜单项，并且指定菜单项点击所会执行的函数
-        var newGame = new cc.MenuItemSprite(
+        /*var newGame = new cc.MenuItemSprite(
             newGameNormal,
             newGameSelected,
             newGameDisabled,
             this.onNewGame(),
             this
-        );
-        /*var newGame = new cc.MenuItemSprite(
+        );*/
+        var newGame = new cc.MenuItemSprite(
             newGameNormal,
             newGameSelected,
             newGameDisabled,
@@ -48,7 +48,7 @@ var MMTouchLayer = cc.Layer.extend({
                 this.onButtonEffect();
                 this.flareEffect(flare, this, this.onNewGame);
             }.bind(this)
-        );*/
+        );
         var gameSettings = new cc.MenuItemSprite(
             gameSettingsNormal,
             gameSettingsSelected,

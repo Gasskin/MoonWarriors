@@ -19,7 +19,7 @@ var GPTouchLayer = cc.Layer.extend({
     ctor : function(){
         this._super();
         this.playMusic();
-        GC.LIFE = 4;
+
         GC.SCORE = 0;
         //重置相关信息
         GC.CONTAINER.SPARKS = [];
