@@ -15,6 +15,8 @@
         "src/resource.js",
 
         "src/config/GameConfig.js",
+        "src/config/Level.js",
+        "src/config/EnemyType.js",
 
         "src/mainMenu/scene/MainMenu.js",
         "src/mainMenu/layer/MMTouchLayer.js",
@@ -33,6 +35,8 @@
         "src/gamePlay/layer/GPBackgroundLayer.js",
         "src/gamePlay/layer/GPTouchLayer.js",
         "src/gamePlay/sprite/ShipSprite.js",
-        "src/gamePlay/sprite/BulletSprite.js"
+        "src/gamePlay/sprite/BulletSprite.js",
+        "src/gamePlay/classes/LevelManager.js",
+        "src/gamePlay/sprite/EnemySprite.js"
     ]
 }

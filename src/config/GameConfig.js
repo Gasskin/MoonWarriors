@@ -26,6 +26,9 @@ GC.GAME_STATE_ENUM = {
 
 GC.GAME_STATE = GC.GAME_STATE_ENUM.HOME;
 
+//当前场景存在敌人数量
+GC.ACTIVE_ENEMIES=0;
+
 //容器，保存场景信息
 GC.CONTAINER = {
     ENEMIES : [],//敌人

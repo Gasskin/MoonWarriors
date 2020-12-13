@@ -31,12 +31,12 @@ var GPTouchLayer = cc.Layer.extend({
         //指向当前层
         g_GPTouchLayer = this;
         this._state = STATE_PLAYING;
-       //this._levelManager = new LevelManager(this);
+        this._levelManager = new LevelManager(this);
         this.initBatchNode();
         this.initAboutInfo();
         this.initShip();
         this.scheduleUpdate();//每一帧都会调用update方法
-        //this.schedule(this.scoreCounter, 1);
+        this.schedule(this.scoreCounter, 1);//每秒尝试添加一个敌人
         //子弹、敌人等预备
         //BulletSprite.preSet();
         //EnemySprite.preSet();
@@ -139,7 +139,7 @@ var GPTouchLayer = cc.Layer.extend({
         this._lbLife.setString(GC.LIFE + '');
         this._lbScore.setString("Score: " + this._tmpScore);
     },
-    //分数在这里面加
+    //添加敌人
     scoreCounter:function () {
         if (this._state == STATE_PLAYING) {
             this._time++;
