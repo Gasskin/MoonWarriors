@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="56f6adf5-24cc-4ca0-8be5-6867881de959" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project.json" beforeDir="false" afterPath="$PROJECT_DIR$/project.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/GameConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/GameConfig.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gameOver/layer/GOTouchLayer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameOver/layer/GOTouchLayer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gamePlay/layer/GPTouchLayer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/gamePlay/layer/GPTouchLayer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mainMenu/layer/MMTouchLayer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/mainMenu/layer/MMTouchLayer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mainMenu/scene/MainMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/mainMenu/scene/MainMenu.js" afterDir="false" />
-    </list>
+    <list default="true" id="56f6adf5-24cc-4ca0-8be5-6867881de959" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -73,7 +65,7 @@
       <updated>1607748141813</updated>
       <workItem from="1607748142881" duration="16295000" />
       <workItem from="1607775130038" duration="5295000" />
-      <workItem from="1607819700106" duration="4980000" />
+      <workItem from="1607819700106" duration="5579000" />
     </task>
     <servers />
   </component>
